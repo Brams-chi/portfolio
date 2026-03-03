@@ -1,0 +1,40 @@
+.label-fire   { color: #E8541A; }
+    .text-primary { color: #F0E2CC; }
+    .text-muted   { color: rgba(240,226,204,0.65); }
+    .text-subtle  { color: rgba(240,226,204,0.52); }
+    .info-label   { color: rgba(240,226,204,0.42); }
+    .period-color { color: #F5A623; }
+
+    .avatar-wrapper {
+      border: 2px solid rgba(232,84,26,0.28);
+      box-shadow: 0 0 40px rgba(232,84,26,0.12);
+    }
+    .avatar-placeholder {
+      width: 100%;
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, #3A2512, #2C1D0E);
+    }
+
+    .available-badge {
+      position: absolute;
+      bottom: -1rem;
+      right: -1rem;
+    }
+    .available-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 8px rgba(74,222,128,0.8);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.5; }
+    }
+
+    .timeline-line {
+      width: 1px;
+      flex: 1;
+      background: rgba(232,84,26,0.18);
+      margin-top: 8px;
+    }

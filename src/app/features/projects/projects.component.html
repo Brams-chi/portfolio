@@ -1,1 +1,167 @@
-<p>projects works!</p>
+<!-- <section id="projects" class="py-32 page-enter">
+    <div class="max-w-6xl mx-auto px-6">
+
+       Header 
+      <div appReveal class="mb-20 flex items-end justify-between flex-wrap gap-4">
+        <div>
+          <p class="font-mono text-sm tracking-widest uppercase mb-3 label-fire">03.</p>
+          <h2 class="font-display text-5xl font-black text-primary">Proyectos</h2>
+          <div class="ember-line mt-4 w-16"></div>
+        </div>
+        <a href="https://github.com" target="_blank"
+           class="font-mono text-sm flex items-center gap-2 link-github">
+          Ver todos en GitHub →
+        </a>
+      </div>
+
+      Proyecto destacado
+      @if (svc.featured(); as featured) {
+        <div appReveal [revealDelay]="100" class="mb-8">
+          <div class="card rounded-lg overflow-hidden glow grid md:grid-cols-2">
+
+             Preview 
+            <div class="aspect-video md:aspect-auto flex items-center justify-center preview-bg"
+                 [style.background]="featured.gradient">
+              <div class="text-center">
+                <div class="font-display text-7xl font-black fire-gradient">{{ featured.number }}</div>
+                <p class="font-mono text-xs mt-1 preview-label">preview</p>
+              </div>
+            </div>
+
+             Info 
+            <div class="p-10 flex flex-col justify-between">
+              <div>
+                <span class="featured-badge font-mono text-xs px-2 py-1 rounded-sm mb-3 inline-block">
+                  Destacado
+                </span>
+                <h3 class="font-display text-3xl font-bold mb-4 text-primary">{{ featured.title }}</h3>
+                <p class="text-sm leading-relaxed mb-6 text-subtle">{{ featured.description }}</p>
+                <div class="flex flex-wrap gap-2 mb-8">
+                  @for (t of featured.tech; track t) {
+                    <span class="tag">{{ t }}</span>
+                  }
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <a [href]="featured.demoUrl"
+                   class="fire-bg text-white font-mono text-sm px-6 py-2 rounded-sm transition hover:opacity-90">
+                  Demo →
+                </a>
+                <a [href]="featured.githubUrl"
+                   class="btn-ghost font-mono text-sm px-6 py-2 rounded-sm transition">
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+
+       Grid secundario
+      <div class="grid md:grid-cols-2 gap-6">
+        @for (project of svc.secondary(); track project.id; let i = $index) {
+          <div appReveal [revealDelay]="(i + 1) * 150" class="card rounded-lg overflow-hidden glow">
+            <div class="aspect-video flex items-center justify-center"
+                 [style.background]="project.gradient">
+              <div class="font-display text-5xl font-black fire-gradient">{{ project.number }}</div>
+            </div>
+            <div class="p-8">
+              <h3 class="font-display text-2xl font-bold mb-3 text-primary">{{ project.title }}</h3>
+              <p class="text-sm leading-relaxed mb-6 text-subtle">{{ project.description }}</p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                @for (t of project.tech; track t) {
+                  <span class="tag">{{ t }}</span>
+                }
+              </div>
+              <div class="flex gap-4">
+                <a [href]="project.demoUrl"  class="font-mono text-sm link-demo">Demo →</a>
+                <a [href]="project.githubUrl" class="font-mono text-sm link-gh">GitHub →</a>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+
+    </div>
+  </section> -->
+  <section class="py-32 page-enter">
+    <div class="max-w-6xl mx-auto px-6">
+  
+      <div appReveal class="mb-16">
+        <p class="font-mono text-sm tracking-widest uppercase mb-3" style="color:#E8541A;">03. Servicios</p>
+        <h2 class="font-display text-5xl font-black" style="color:#F0E2CC;">¿Qué hacemos?</h2>
+        <div class="ember-line mt-4" style="width:60px;"></div>
+        <p class="mt-4 text-base" style="color:rgba(240,226,204,0.50);max-width:540px;">
+          Tres formas de trabajar juntos, adaptadas al momento y necesidad de tu empresa.
+        </p>
+      </div>
+  
+      <!-- Tabs de selección -->
+      <div appReveal class="flex flex-wrap gap-3 mb-12">
+        <button class="tab-btn font-mono text-sm px-6 py-3 rounded-sm tracking-wider"
+                [class.tab-active]="activeTab() === 'consultoria'"
+                (click)="activeTab.set('consultoria')">
+          🎯 Asesoría Técnica
+        </button>
+        <button class="tab-btn font-mono text-sm px-6 py-3 rounded-sm tracking-wider"
+                [class.tab-active]="activeTab() === 'software'"
+                (click)="activeTab.set('software')">
+          💻 Desarrollo Software
+        </button>
+        <button class="tab-btn font-mono text-sm px-6 py-3 rounded-sm tracking-wider"
+                [class.tab-active]="activeTab() === 'completo'"
+                (click)="activeTab.set('completo')">
+          🚀 Todo Incluido
+        </button>
+      </div>
+  
+      <!-- Card del servicio activo -->
+      <div appReveal class="card rounded-lg overflow-hidden glow grid md:grid-cols-2">
+  
+        <!-- Preview visual -->
+        <div class="flex items-center justify-center py-16 px-10" [style.background]="servicio.gradient">
+          <div class="text-center">
+            <div class="font-display font-black fire-gradient mb-3" style="font-size:6rem;line-height:1;">
+              {{ servicio.number }}
+            </div>
+            <span class="font-mono text-xs px-3 py-1 rounded-sm" style="background:rgba(232,84,26,0.2);color:#E8541A;">
+              {{ servicio.badge }}
+            </span>
+          </div>
+        </div>
+  
+        <!-- Info -->
+        <div class="p-10 flex flex-col justify-between">
+          <div>
+            <h3 class="font-display text-3xl font-bold mb-4" style="color:#F0E2CC;">{{ servicio.title }}</h3>
+            <p class="text-sm leading-relaxed mb-8" style="color:rgba(240,226,204,0.52);">{{ servicio.description }}</p>
+  
+            <p class="font-mono text-xs tracking-widest uppercase mb-4" style="color:#E8541A;">¿Qué incluye?</p>
+            <ul class="space-y-2 mb-8">
+              @for (item of servicio.incluye; track item) {
+                <li class="flex items-start gap-2 text-sm" style="color:rgba(240,226,204,0.65);">
+                  <span style="color:#E8541A;flex-shrink:0;">→</span>
+                  {{ item }}
+                </li>
+              }
+            </ul>
+  
+            <div class="flex flex-wrap gap-2 mb-8">
+              @for (t of servicio.tech; track t) { <span class="tag">{{ t }}</span> }
+            </div>
+  
+            <div class="card rounded-md p-4 mb-8" style="border-color:rgba(245,166,35,0.2);">
+              <p class="font-mono text-xs mb-1" style="color:#F5A623;">✦ Ideal para</p>
+              <p class="text-sm" style="color:rgba(240,226,204,0.60);">{{ servicio.ideal }}</p>
+            </div>
+          </div>
+  
+          <button class="fire-bg text-white font-mono px-8 py-3 rounded-sm tracking-wider hover:opacity-90 transition-opacity w-fit"
+                  (click)="goto('/contact')">
+            {{ servicio.cta }} →
+          </button>
+        </div>
+      </div>
+  
+    </div>
+  </section>

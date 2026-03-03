@@ -1,1 +1,155 @@
-<p>about works!</p>
+<!-- <section id="about" class="py-32 relative page-enter">
+    <div class="max-w-6xl mx-auto px-6">
+
+      // Header
+      <div appReveal class="mb-20">
+        <p class="font-mono text-sm tracking-widest uppercase mb-3 label-fire">01.</p>
+        <h2 class="font-display text-5xl font-black text-primary">Sobre mí</h2>
+        <div class="ember-line mt-4 w-16"></div>
+      </div>
+
+      <div class="grid md:grid-cols-5 gap-16 items-start">
+
+        // Avatar + info rápida 
+        <div appReveal [revealDelay]="150" class="md:col-span-2">
+
+          // Avatar 
+          <div class="relative mb-8">
+            <div class="avatar-wrapper rounded-lg overflow-hidden">
+              <div class="avatar-placeholder font-display text-8xl font-black flex items-center justify-center">
+                <span class="fire-gradient">BM</span>
+              </div>
+            </div>
+            //Badge disponible 
+            <div class="card available-badge rounded-full px-4 py-2 glow flex items-center gap-2">
+              <span class="available-dot"></span>
+              <span class="font-mono text-xs text-primary">Disponible</span>
+            </div>
+          </div>
+
+          //Info rápida
+          <div class="card rounded-lg p-6 space-y-4">
+            @for (item of quickInfo; track item.label) {
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-xs info-label">{{ item.label }}</span>
+                <span class="text-sm font-medium" [style.color]="item.color ?? 'var(--text)'">
+                  {{ item.value }}
+                </span>
+              </div>
+              @if (!$last) {
+                <div class="ember-line"></div>
+              }
+            }
+          </div>
+        </div>
+
+        // Bio + Timeline
+        <div appReveal [revealDelay]="300" class="md:col-span-3">
+
+          <p class="text-lg leading-relaxed mb-6 text-muted">
+            Soy un desarrollador frontend apasionado por construir interfaces que no solo se ven bien,
+            sino que funcionan de manera excepcional. Me especializo en Angular y el ecosistema moderno
+            de JavaScript, con enfoque en rendimiento, accesibilidad y experiencia de usuario.
+          </p>
+          <p class="text-base leading-relaxed mb-12 text-subtle">
+            Cuando no estoy construyendo aplicaciones web, estoy explorando nuevas tecnologías,
+            contribuyendo a proyectos open source o tomando fotos de atardeceres épicos. 🌅
+          </p>
+
+          // Timeline de experiencia 
+          <p class="font-mono text-sm tracking-widest uppercase mb-8 label-fire">Experiencia</p>
+
+          <div class="space-y-0">
+            @for (exp of experience; track exp.role; let last = $last) {
+              <div class="flex gap-6">
+                <div class="flex flex-col items-center">
+                  <div class="timeline-dot mt-1"></div>
+                  @if (!last) {
+                    <div class="timeline-line"></div>
+                  }
+                </div>
+                <div [class.pb-8]="!last">
+                  <p class="font-mono text-xs mb-1 period-color">{{ exp.period }}</p>
+                  <h4 class="font-display text-xl font-bold mb-1 text-primary">{{ exp.role }}</h4>
+                  <p class="text-sm mb-3 text-subtle">{{ exp.company }}</p>
+                  <p class="text-sm leading-relaxed text-muted">{{ exp.description }}</p>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section> -->
+  <section class="py-32 relative page-enter">
+    <div class="max-w-6xl mx-auto px-6">
+  
+      <div appReveal class="mb-20">
+        <p class="font-mono text-sm tracking-widest uppercase mb-3" style="color:#E8541A;">01. Nosotros</p>
+        <h2 class="font-display text-5xl font-black" style="color:#F0E2CC;">¿Quiénes somos?</h2>
+        <div class="ember-line mt-4" style="width:60px;"></div>
+      </div>
+  
+      <div class="grid md:grid-cols-5 gap-16 items-start mb-24">
+  
+        <div appReveal [revealDelay]="100" class="md:col-span-3">
+          <p class="text-lg leading-relaxed mb-6" style="color:rgba(240,226,204,0.65);">
+            <strong style="color:#F5A623;">BRAMS</strong> es una consultora tecnológica especializada en
+            acelerar la transformación digital de pequeñas y medianas empresas.
+            Combinamos análisis estratégico, diseño de procesos y desarrollo de software
+            para entregar soluciones que generan impacto real desde el primer día.
+          </p>
+          <p class="text-base leading-relaxed mb-10" style="color:rgba(240,226,204,0.50);">
+            Creemos que la tecnología no debería ser un privilegio de las grandes corporaciones.
+            Cada PYME merece acceso a herramientas modernas, seguras y escalables —
+            adaptadas a su realidad y presupuesto.
+          </p>
+          <p class="font-mono text-sm tracking-widest uppercase mb-6" style="color:#E8541A;">Nuestros valores</p>
+          <div class="grid grid-cols-2 gap-4">
+            @for (v of valores; track v.label) {
+              <div class="card rounded-lg p-5">
+                <p class="text-xl mb-2">{{ v.icon }}</p>
+                <p class="font-mono text-sm font-medium mb-1" style="color:#F0E2CC;">{{ v.label }}</p>
+                <p class="text-sm" style="color:rgba(240,226,204,0.48);">{{ v.desc }}</p>
+              </div>
+            }
+          </div>
+        </div>
+  
+        <div appReveal [revealDelay]="250" class="md:col-span-2">
+          <div class="rounded-lg overflow-hidden mb-6" style="border:2px solid rgba(232,84,26,0.28);box-shadow:0 0 40px rgba(232,84,26,0.12);">
+            <div class="w-full flex flex-col items-center justify-center py-12" style="background:linear-gradient(135deg,#3A2512,#2C1D0E);">
+              <span class="font-display font-black fire-gradient" style="font-size:4rem;">BRAMS</span>
+              <span class="font-mono text-xs tracking-widest mt-2" style="color:rgba(232,84,26,0.55);">TECH ACCELERATION</span>
+            </div>
+          </div>
+          <div class="card rounded-lg p-6 space-y-4">
+            @for (item of info; track item.label) {
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-xs" style="color:rgba(240,226,204,0.42);">{{ item.label }}</span>
+                <span class="text-sm font-medium" [style.color]="item.color ?? '#F0E2CC'">{{ item.value }}</span>
+              </div>
+              @if (!$last) { <div class="ember-line"></div> }
+            }
+          </div>
+        </div>
+      </div>
+  
+      <div appReveal class="mb-6">
+        <p class="font-mono text-sm tracking-widest uppercase mb-3" style="color:#E8541A;">Áreas de expertise</p>
+        <h3 class="font-display text-3xl font-black mb-12" style="color:#F0E2CC;">Lo que sabemos hacer</h3>
+      </div>
+  
+      <div class="grid md:grid-cols-3 gap-6">
+        @for (area of areas; track area.title; let i = $index) {
+          <div appReveal [revealDelay]="i * 100" class="card rounded-lg p-7 glow">
+            <div class="text-3xl mb-4">{{ area.icon }}</div>
+            <h4 class="font-display text-xl font-bold mb-3" style="color:#F0E2CC;">{{ area.title }}</h4>
+            <p class="text-sm leading-relaxed" style="color:rgba(240,226,204,0.52);">{{ area.desc }}</p>
+          </div>
+        }
+      </div>
+  
+    </div>
+  </section>

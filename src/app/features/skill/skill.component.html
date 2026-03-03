@@ -1,0 +1,110 @@
+<!-- <section id="skills" class="py-32 section-alt page-enter">
+    <div class="max-w-6xl mx-auto px-6">
+
+       Header 
+      <div appReveal class="mb-20">
+        <p class="font-mono text-sm tracking-widest uppercase mb-3 label-fire">02.</p>
+        <h2 class="font-display text-5xl font-black text-primary">Skills &amp; Stack</h2>
+        <div class="ember-line mt-4 w-16"></div>
+      </div>
+
+      Grid de bloques 
+      <div class="grid md:grid-cols-3 gap-8">
+        @for (block of skillBlocks; track block.title; let i = $index) {
+          <div appReveal [revealDelay]="i * 150" class="card rounded-lg p-8 glow">
+
+             Cabecera del bloque 
+            <div class="flex items-center gap-3 mb-6">
+              <div class="fire-bg w-10 h-10 rounded-sm flex items-center justify-center text-lg">
+                {{ block.icon }}
+              </div>
+              <h3 class="font-display text-xl font-bold text-primary">{{ block.title }}</h3>
+            </div>
+
+             Barras de skills 
+            <div class="space-y-4">
+              @for (skill of block.skills; track skill.name) {
+                <div>
+                  <div class="flex justify-between mb-2">
+                    <span class="font-mono text-xs skill-label">{{ skill.name }}</span>
+                    <span class="font-mono text-xs skill-pct">{{ skill.level }}%</span>
+                  </div>
+                  <div class="bar-track">
+                    <div class="bar-fill" [style.width]="skill.level + '%'"></div>
+                  </div>
+                </div>
+              }
+            </div>
+
+            <div class="ember-line my-6"></div>
+
+             Tags 
+            <div class="flex flex-wrap gap-2">
+              @for (tag of block.tags; track tag) {
+                <span class="tag">{{ tag }}</span>
+              }
+            </div>
+
+          </div>
+        }
+      </div>
+    </div>
+  </section> -->
+  <section class="py-32 section-alt page-enter">
+    <div class="max-w-6xl mx-auto px-6">
+  
+      <div appReveal class="mb-20">
+        <p class="font-mono text-sm tracking-widest uppercase mb-3" style="color:#E8541A;">02. Capacidades</p>
+        <h2 class="font-display text-5xl font-black" style="color:#F0E2CC;">Stack & Metodología</h2>
+        <div class="ember-line mt-4" style="width:60px;"></div>
+      </div>
+  
+      <div class="grid md:grid-cols-3 gap-8 mb-24">
+        @for (block of tecnologias; track block.title; let i = $index) {
+          <div appReveal [revealDelay]="i * 150" class="card rounded-lg p-8 glow">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="fire-bg w-10 h-10 rounded-sm flex items-center justify-center text-lg">
+                {{ block.icon }}
+              </div>
+              <h3 class="font-display text-xl font-bold" style="color:#F0E2CC;">{{ block.title }}</h3>
+            </div>
+            <div class="space-y-4">
+              @for (skill of block.skills; track skill.name) {
+                <div>
+                  <div class="flex justify-between mb-2">
+                    <span class="font-mono text-xs" style="color:rgba(240,226,204,0.58);">{{ skill.name }}</span>
+                    <span class="font-mono text-xs" style="color:#E8541A;">{{ skill.level }}%</span>
+                  </div>
+                  <div class="bar-track">
+                    <div class="bar-fill" [style.width]="skill.level + '%'"></div>
+                  </div>
+                </div>
+              }
+            </div>
+            <div class="ember-line my-6"></div>
+            <div class="flex flex-wrap gap-2">
+              @for (t of block.tags; track t) { <span class="tag">{{ t }}</span> }
+            </div>
+          </div>
+        }
+      </div>
+  
+      <div appReveal class="mb-12">
+        <p class="font-mono text-sm tracking-widest uppercase mb-3" style="color:#E8541A;">Cómo trabajamos</p>
+        <h3 class="font-display text-3xl font-black" style="color:#F0E2CC;">Metodología BRAMS</h3>
+      </div>
+  
+      <div class="grid md:grid-cols-3 gap-6">
+        @for (m of metodologias; track m.label; let i = $index) {
+          <div appReveal [revealDelay]="i * 80" class="card rounded-lg p-6 flex gap-4">
+            <div class="text-2xl flex-shrink-0">{{ m.icon }}</div>
+            <div>
+              <p class="font-mono text-sm font-medium mb-2" style="color:#F0E2CC;">{{ m.label }}</p>
+              <p class="text-sm" style="color:rgba(240,226,204,0.52);">{{ m.desc }}</p>
+            </div>
+          </div>
+        }
+      </div>
+  
+    </div>
+  </section>

@@ -1,0 +1,94 @@
+  /* ── Cortina ── */
+  :host {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+  }
+
+  .curtain {
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    will-change: transform;
+  }
+
+  /* Estado holding: la cortina permanece cubriendo toda la pantalla */
+  .curtain-holding {
+    transform: translateX(0) !important;
+    animation: none !important;
+  }
+
+  /* Cara de la cortina */
+  .curtain-face {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      #7C2006 0%,
+      #B53A0A 25%,
+      #E8541A 65%,
+      #F5A623 100%
+    );
+  }
+
+  /* Lamas / textura de persiana */
+  .curtain-slats {
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      90deg,
+      rgba(0,0,0,0.07) 0px,
+      rgba(0,0,0,0.07) 1px,
+      transparent 1px,
+      transparent 38px
+    );
+  }
+
+  /* Borde derecho — efecto de profundidad al cerrarse */
+  .curtain-edge {
+    position: absolute;
+    top: 0; right: 0;
+    width: 8px;
+    height: 100%;
+    background: rgba(0,0,0,0.28);
+    box-shadow: -4px 0 20px rgba(0,0,0,0.35);
+  }
+
+  /* Animaciones (definidas en styles.css globales, también aquí como fallback) */
+  .curtain-closing {
+    animation: curtainIn 480ms cubic-bezier(0.76, 0, 0.24, 1) forwards;
+  }
+  .curtain-opening {
+    animation: curtainOut 500ms cubic-bezier(0.76, 0, 0.24, 1) forwards;
+  }
+
+  @keyframes curtainIn {
+    from { transform: translateX(-100%); }
+    to   { transform: translateX(0); }
+  }
+  @keyframes curtainOut {
+    from { transform: translateX(0); }
+    to   { transform: translateX(100%); }
+  }
+
+  /* ── Logo central ── */
+  .curtain-logo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    z-index: 10000;
+    filter: drop-shadow(0 0 30px rgba(255,255,255,0.25));
+    pointer-events: none;
+  }
+  .curtain-logo.visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }

@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   templateUrl: './footer.html',
   styleUrl: './footer.scss',
 })
-export class Footer {
-
+export class FooterComponent {
+  scrollTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }

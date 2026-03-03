@@ -1,0 +1,21 @@
+@if (svc.isActive()) {
+    <!-- Cortina única — barre de izquierda a derecha -->
+    <div
+      class="curtain"
+      [class.curtain-closing]="svc.phase() === 'closing'"
+      [class.curtain-holding]="svc.phase() === 'holding'"
+      [class.curtain-opening]="svc.phase() === 'opening'"
+    >
+      <div class="curtain-face">
+        <!-- Lamas verticales de textura -->
+        <div class="curtain-slats"></div>
+        <!-- Borde derecho tipo marco -->
+        <div class="curtain-edge"></div>
+      </div>
+    </div>
+
+    <!-- Logo central durante la transición -->
+    <div class="curtain-logo" [class.visible]="svc.showLogo()">
+      Brams
+    </div>
+  }

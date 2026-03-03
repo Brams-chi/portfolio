@@ -1,1 +1,19 @@
-<p>navbar works!</p>
+<nav class="navbar">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <button class="nav-logo font-display fire-gradient" (click)="goto('/')">
+            BRAMS<span class="logo-dot">.</span>
+          </button>
+        <div class="hidden md:flex items-center gap-8">
+            <button class="nav-link font-mono text-sm tracking-widest uppercase" [class.nav-active]="isActive('/')"
+                (click)="goto('/')">Inicio</button>
+            <button class="nav-link font-mono text-sm tracking-widest uppercase" [class.nav-active]="isActive('/about')"
+                (click)="goto('/about')">Nosotros</button>
+            <button class="nav-link font-mono text-sm tracking-widest uppercase"
+                [class.nav-active]="isActive('/skills')" (click)="goto('/skills')">Capacidades</button>
+            <button class="nav-link font-mono text-sm tracking-widest uppercase"
+                [class.nav-active]="isActive('/projects')" (click)="goto('/projects')">Servicios</button>
+            <button class="nav-link font-mono text-sm tracking-widest uppercase"
+                [class.nav-active]="isActive('/contact')" (click)="goto('/contact')">Contacto</button>
+        </div>
+    </div>
+</nav>
