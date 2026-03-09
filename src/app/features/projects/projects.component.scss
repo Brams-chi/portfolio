@@ -1,47 +1,19 @@
-// .label-fire   { color: #E8541A; }
-//     .text-primary { color: #F0E2CC; }
-//     .text-subtle  { color: rgba(240,226,204,0.52); }
-
-//     .link-github {
-//       color: rgba(232,84,26,0.65);
-//       text-decoration: none;
-//       transition: color 0.3s;
-//     }
-//     .link-github:hover { color: #E8541A; }
-
-//     .preview-label { color: rgba(232,84,26,0.4); }
-
-//     .featured-badge {
-//       background: rgba(232,84,26,0.15);
-//       color: #E8541A;
-//     }
-
-//     .btn-ghost {
-//       border: 1px solid rgba(232,84,26,0.3);
-//       color: #F5A623;
-//       text-decoration: none;
-//       transition: border-color 0.3s;
-//     }
-//     .btn-ghost:hover { border-color: rgba(232,84,26,0.6); }
-
-//     .link-demo { color: #E8541A; text-decoration: none; }
-//     .link-gh   { color: rgba(240,226,204,0.36); text-decoration: none; transition: color 0.3s; }
-//     .link-gh:hover { color: #F5A623; }
 .tab-btn {
-  background: rgba(58,37,18,0.6);
-  border: 1px solid rgba(232,84,26,0.18);
-  color: rgba(240,226,204,0.45);
+  background: #FFFFFF;
+  border: 1px solid rgba(232, 84, 26, 0.15);
+  color: rgba(28, 16, 8, 0.45);
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.25s;
+  font-family: 'DM Mono', monospace;
 
   &:hover {
-    border-color: rgba(232,84,26,0.4);
-    color: rgba(240,226,204,0.8);
+    border-color: rgba(232, 84, 26, 0.35);
+    color: rgba(28, 16, 8, 0.75);
   }
 }
 
 .tab-active {
-  background: rgba(232,84,26,0.18) !important;
-  border-color: rgba(232,84,26,0.55) !important;
-  color: #F0E2CC !important;
+  background: rgba(232, 84, 26, 0.08) !important;
+  border-color: #E8541A !important;
+  color: #C93F0A !important;
 }

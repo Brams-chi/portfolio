@@ -44,11 +44,28 @@
   background: transparent;
   cursor: pointer;
   transition: border-color 0.3s, color 0.3s;
-  &:hover { border-color: rgba(232,84,26,0.75); color: #E8541A; }
+
+  &:hover {
+    border-color: rgba(232, 84, 26, 0.75);
+    color: #E8541A;
+  }
 }
+
 .scroll-line {
-  width: 1px; height: 40px;
+  width: 1px;
+  height: 40px;
   background: linear-gradient(to bottom, #E8541A, transparent);
   animation: scrollPulse 2s ease-in-out infinite;
 }
-@keyframes scrollPulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+@keyframes scrollPulse {
+
+  0%,
+  100% {
+    opacity: 1
+  }
+
+  50% {
+    opacity: 0.3
+  }
+}

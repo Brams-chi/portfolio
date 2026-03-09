@@ -1,198 +1,144 @@
-<!-- <section id="contact" class="py-32 section-alt page-enter">
-    <div class="max-w-4xl mx-auto px-6">
+<section class="py-32 section-alt page-enter">
+  <div class="max-w-5xl mx-auto px-6">
 
-       Header 
-      <div appReveal class="text-center mb-16">
-        <p class="font-mono text-sm tracking-widest uppercase mb-3 label-fire">04.</p>
-        <h2 class="font-display text-5xl font-black mb-4 text-primary">Trabajemos juntos</h2>
-        <p class="text-base text-subtle">¿Tienes un proyecto en mente? Cuéntame sobre él.</p>
-        <div class="ember-line mt-6 mx-auto w-16"></div>
+    <div appReveal class="text-center mb-16">
+      <p class="font-mono text-sm tracking-widest uppercase mb-3" style="color:#E8541A;">04. Contacto</p>
+      <h2 class="font-display text-5xl font-black mb-4" style="color:#1C1008;">Hablemos de tu empresa</h2>
+      <p class="text-base" style="color:rgba(28,16,8,0.46);">
+        Cuéntanos en qué etapa estás y cómo podemos ayudarte a avanzar.
+      </p>
+      <div class="ember-line mt-6 mx-auto" style="width:60px;"></div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <!-- Canales directos -->
+      <div appReveal class="space-y-4">
+        <p class="font-mono text-xs tracking-widest uppercase mb-6" style="color:#E8541A;">Canales directos</p>
+
+        @for (c of canales; track c.label) {
+        <div class="card rounded-lg p-5 flex items-center gap-4">
+          <span class="text-2xl">{{ c.icon }}</span>
+          <div>
+            <p class="font-mono text-xs mb-1" style="color:rgba(28,16,8,0.40);">{{ c.label }}</p>
+            <p class="text-sm font-medium" style="color:#1C1008;">{{ c.value }}</p>
+          </div>
+        </div>
+        }
+
+        <div class="card rounded-lg p-5 mt-4">
+          <p class="font-mono text-xs mb-3" style="color:rgba(28,16,8,0.40);">Tiempo de respuesta</p>
+          <p class="font-display text-3xl font-black fire-gradient">&lt; 24h</p>
+          <p class="text-sm mt-1" style="color:rgba(28,16,8,0.45);">en días hábiles</p>
+        </div>
       </div>
 
-       Formulario 
-      <div appReveal [revealDelay]="150" class="card rounded-lg p-10 glow">
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- Formulario -->
+      <div appReveal [revealDelay]="150" class="md:col-span-2">
+        <div class="card rounded-lg p-8 glow">
 
-           Nombre + Email
-          <div class="grid md:grid-cols-2 gap-6 mb-6">
-            <div>
-              <label for="name" class="font-mono text-xs tracking-widest uppercase mb-2 block field-label">
-                Nombre
-              </label>
-              <input type="text"
-                     formControlName="name"
-                     placeholder="Tu nombre"
-                     class="w-full px-4 py-3 rounded-sm font-mono text-sm"
-                     [class.field-error]="isInvalid('name')" />
-              @if (isInvalid('name')) {
-                <p class="error-msg font-mono text-xs mt-1">El nombre es requerido</p>
-              }
+          <!-- Estado: enviado con éxito -->
+          @if (isSent) {
+          <div class="flex flex-col items-center justify-center py-12 text-center">
+            <div class="fire-bg w-16 h-16 rounded-full flex items-center justify-center text-white text-2xl mb-6">
+              ✓
             </div>
-
-            <div>
-              <label for="email" class="font-mono text-xs tracking-widest uppercase mb-2 block field-label">
-                Email
-              </label>
-              <input type="email"
-                     formControlName="email"
-                     placeholder="tu@email.com"
-                     class="w-full px-4 py-3 rounded-sm font-mono text-sm"
-                     [class.field-error]="isInvalid('email')" />
-              @if (isInvalid('email')) {
-                <p class="error-msg font-mono text-xs mt-1">Email inválido</p>
-              }
-            </div>
-          </div>
-
-           Asunto 
-          <div class="mb-6">
-            <label for="subject" class="font-mono text-xs tracking-widest uppercase mb-2 block field-label">
-              Asunto
-            </label>
-            <input type="text"
-                   formControlName="subject"
-                   placeholder="¿En qué puedo ayudarte?"
-                   class="w-full px-4 py-3 rounded-sm font-mono text-sm" />
-          </div>
-
-          Mensaje 
-          <div class="mb-8">
-            <label for="message" class="font-mono text-xs tracking-widest uppercase mb-2 block field-label">
-              Mensaje
-            </label>
-            <textarea rows="5"
-                      formControlName="message"
-                      placeholder="Cuéntame sobre tu proyecto..."
-                      class="w-full px-4 py-3 rounded-sm font-mono text-sm resize-none"
-                      [class.field-error]="isInvalid('message')">
-            </textarea>
-            @if (isInvalid('message')) {
-              <p class="error-msg font-mono text-xs mt-1">El mensaje es requerido</p>
-            }
-          </div>
-
-          Submit + redes 
-          <div class="flex items-center justify-between flex-wrap gap-4">
-            <button type="submit"
-                    class="fire-bg text-white font-mono px-10 py-3 rounded-sm
-                           font-medium tracking-widest transition hover:opacity-90"
-                    [disabled]="sent()">
-              @if (sent()) { ✓ Enviado } @else { Enviar mensaje → }
+            <h3 class="font-display text-2xl font-bold mb-3" style="color:#1C1008;">
+              ¡Mensaje enviado!
+            </h3>
+            <p class="text-sm" style="color:rgba(28,16,8,0.52);max-width:320px;">
+              Gracias por contactarnos. Te responderemos en menos de 24 horas hábiles.
+            </p>
+            <button class="mt-8 font-mono text-sm" style="color:#E8541A;background:none;border:none;cursor:pointer;"
+              (click)="status.set('idle')">
+              Enviar otro mensaje →
             </button>
+          </div>
 
-            <div class="flex gap-6">
-              @for (link of socialLinks; track link.label) {
-                <a [href]="link.url" target="_blank" class="social-link font-mono text-sm">
-                  {{ link.label }}
-                </a>
+          } @else {
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+            <div class="grid md:grid-cols-2 gap-5 mb-5">
+              <div>
+                <label for="name" class="font-mono text-xs tracking-widest uppercase mb-2 block"
+                  style="color:rgba(232,84,26,0.7);">Nombre *</label>
+                <input id="name" type="text" formControlName="name" placeholder="Tu nombre completo"
+                  class="w-full px-4 py-3 rounded-sm font-mono text-sm" [class.input-error]="isInvalid('name')" />
+                @if (isInvalid('name')) {
+                <p class="error-msg font-mono text-xs mt-1">El nombre es requerido</p>
+                }
+              </div>
+              <div>
+                <label for="email" class="font-mono text-xs tracking-widest uppercase mb-2 block"
+                  style="color:rgba(232,84,26,0.7);">Email *</label>
+                <input id="email" type="email" formControlName="email" placeholder="tu@empresa.cl"
+                  class="w-full px-4 py-3 rounded-sm font-mono text-sm" [class.input-error]="isInvalid('email')" />
+                @if (isInvalid('email')) {
+                <p class="error-msg font-mono text-xs mt-1">Email inválido</p>
+                }
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-5 mb-5">
+              <div>
+                <label for="company" class="font-mono text-xs tracking-widest uppercase mb-2 block"
+                  style="color:rgba(232,84,26,0.7);">Empresa</label>
+                <input id="company" type="text" formControlName="company" placeholder="Nombre de tu empresa"
+                  class="w-full px-4 py-3 rounded-sm font-mono text-sm" />
+              </div>
+              <div>
+                <label for="service" class="font-mono text-xs tracking-widest uppercase mb-2 block"
+                  style="color:rgba(232,84,26,0.7);">Servicio de interés</label>
+                <select id="service" formControlName="service"
+                  class="select-field w-full px-4 py-3 rounded-sm font-mono text-sm">
+                  <option value="">Seleccionar...</option>
+                  @for (opt of serviceOptions; track opt.value) {
+                  <option [value]="opt.value">{{ opt.label }}</option>
+                  }
+                </select>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <label for="message" class="font-mono text-xs tracking-widest uppercase mb-2 block"
+                style="color:rgba(232,84,26,0.7);">Mensaje *</label>
+              <textarea id="message" rows="5" formControlName="message"
+                placeholder="¿Qué hace tu empresa? ¿Cuál es el desafío tecnológico que enfrentas?"
+                class="w-full px-4 py-3 rounded-sm font-mono text-sm resize-none"
+                [class.input-error]="isInvalid('message')">
+                </textarea>
+              @if (isInvalid('message')) {
+              <p class="error-msg font-mono text-xs mt-1">Requerido (mín. 10 caracteres)</p>
               }
             </div>
-          </div>
 
-        </form>
-      </div>
-
-    </div>
-  </section> -->
-  <section class="py-32 section-alt page-enter">
-    <div class="max-w-5xl mx-auto px-6">
-  
-      <div appReveal class="text-center mb-16">
-        <p class="font-mono text-sm tracking-widest uppercase mb-3" style="color:#E8541A;">04. Contacto</p>
-        <h2 class="font-display text-5xl font-black mb-4" style="color:#F0E2CC;">Hablemos de tu empresa</h2>
-        <p class="text-base" style="color:rgba(240,226,204,0.46);">
-          Cuéntanos en qué etapa estás y cómo podemos ayudarte a avanzar.
-        </p>
-        <div class="ember-line mt-6 mx-auto" style="width:60px;"></div>
-      </div>
-  
-      <div class="grid md:grid-cols-3 gap-8">
-  
-        <!-- Canales de contacto -->
-        <div appReveal class="space-y-4">
-          <p class="font-mono text-xs tracking-widest uppercase mb-6" style="color:#E8541A;">Canales directos</p>
-          @for (c of canales; track c.label) {
-            <div class="card rounded-lg p-5 flex items-center gap-4">
-              <span class="text-2xl">{{ c.icon }}</span>
-              <div>
-                <p class="font-mono text-xs mb-1" style="color:rgba(240,226,204,0.42);">{{ c.label }}</p>
-                <p class="text-sm font-medium" style="color:#F0E2CC;">{{ c.value }}</p>
-              </div>
+            <!-- Error de envío -->
+            @if (isError) {
+            <div class="rounded-sm p-4 mb-5"
+              style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.20);">
+              <p class="font-mono text-xs" style="color:rgba(220,38,38,0.8);">
+                ⚠ Hubo un error al enviar el mensaje. Inténtalo de nuevo o escríbenos directamente a hola@brams.cl
+              </p>
             </div>
+            }
+
+            <div class="flex items-center justify-between flex-wrap gap-4">
+              <button type="submit" class="fire-bg font-mono px-10 py-3 rounded-sm font-medium tracking-widest
+                               hover:opacity-90 transition-opacity flex items-center gap-3" [disabled]="isSending">
+                @if (isSending) {
+                <span class="spinner"></span> Enviando...
+                } @else {
+                Enviar consulta →
+                }
+              </button>
+            </div>
+
+          </form>
           }
-          <div class="card rounded-lg p-5 mt-6">
-            <p class="font-mono text-xs mb-4" style="color:rgba(240,226,204,0.42);">Tiempo de respuesta</p>
-            <p class="font-display text-3xl font-black fire-gradient">< 24h</p>
-            <p class="text-sm mt-1" style="color:rgba(240,226,204,0.45);">en días hábiles</p>
-          </div>
+
         </div>
-  
-        <!-- Formulario -->
-        <div appReveal [revealDelay]="150" class="md:col-span-2">
-          <div class="card rounded-lg p-8 glow">
-            <form [formGroup]="form" (ngSubmit)="onSubmit()">
-  
-              <div class="grid md:grid-cols-2 gap-5 mb-5">
-                <div>
-                  <label for="name" class="font-mono text-xs tracking-widest uppercase mb-2 block" style="color:rgba(232,84,26,0.7);">Nombre</label>
-                  <input id="name" type="text" formControlName="name" placeholder="Tu nombre"
-                         class="w-full px-4 py-3 rounded-sm font-mono text-sm"
-                         [class.input-error]="isInvalid('name')"/>
-                  @if (isInvalid('name')) { <p class="error-msg font-mono text-xs mt-1">Requerido</p> }
-                </div>
-                <div>
-                  <label for="email" class="font-mono text-xs tracking-widest uppercase mb-2 block" style="color:rgba(232,84,26,0.7);">Email</label>
-                  <input id="email" type="email" formControlName="email" placeholder="tu@empresa.cl"
-                         class="w-full px-4 py-3 rounded-sm font-mono text-sm"
-                         [class.input-error]="isInvalid('email')"/>
-                  @if (isInvalid('email')) { <p class="error-msg font-mono text-xs mt-1">Email inválido</p> }
-                </div>
-              </div>
-  
-              <div class="grid md:grid-cols-2 gap-5 mb-5">
-                <div>
-                  <label for="company" class="font-mono text-xs tracking-widest uppercase mb-2 block" style="color:rgba(232,84,26,0.7);">Empresa (opcional)</label>
-                  <input id="company" type="text" formControlName="company" placeholder="Nombre de tu empresa"
-                         class="w-full px-4 py-3 rounded-sm font-mono text-sm"/>
-                </div>
-                <div>
-                  <label for="service" class="font-mono text-xs tracking-widest uppercase mb-2 block" style="color:rgba(232,84,26,0.7);">Servicio de interés</label>
-                  <select id="service" formControlName="service" class="w-full px-4 py-3 rounded-sm font-mono text-sm select-field">
-                    <option value="">Seleccionar...</option>
-                    @for (opt of serviceOptions; track opt.value) {
-                      <option [value]="opt.value">{{ opt.label }}</option>
-                    }
-                  </select>
-                </div>
-              </div>
-  
-              <div class="mb-6">
-                <label for="message" class="font-mono text-xs tracking-widest uppercase mb-2 block" style="color:rgba(232,84,26,0.7);">Cuéntanos sobre tu empresa</label>
-                <textarea id="message" rows="5" formControlName="message"
-                          placeholder="¿Qué hace tu empresa? ¿Cuál es el desafío tecnológico que enfrentas?"
-                          class="w-full px-4 py-3 rounded-sm font-mono text-sm resize-none"
-                          [class.input-error]="isInvalid('message')">
-                </textarea>
-                @if (isInvalid('message')) { <p class="error-msg font-mono text-xs mt-1">Requerido (mín. 10 caracteres)</p> }
-              </div>
-  
-              <div class="flex items-center justify-between flex-wrap gap-4">
-                <button type="submit"
-                        class="fire-bg text-white font-mono px-10 py-3 rounded-sm font-medium tracking-widest hover:opacity-90 transition-opacity"
-                        [disabled]="sent()">
-                  {{ sent() ? '✓ Mensaje enviado' : 'Enviar consulta →' }}
-                </button>
-                <div class="flex gap-5">
-                  @for (s of social; track s.label) {
-                    <a [href]="s.url" target="_blank" class="social-link font-mono text-sm">{{ s.label }}</a>
-                  }
-                </div>
-              </div>
-  
-            </form>
-          </div>
-        </div>
-  
       </div>
+
     </div>
-  </section>
+  </div>
+</section>

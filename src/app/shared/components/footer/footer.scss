@@ -1,22 +1,21 @@
 .footer {
-    padding: 2.5rem 0;
-    border-top: 1px solid rgba(232,84,26,0.12);
-    position: relative;
-    z-index: 1;
-  }
+  padding: 2.5rem 0;
+  border-top: 1px solid rgba(232, 84, 26, 0.10);
+  background: #FDF6EE;
+  position: relative;
+  z-index: 1;
+}
 
-  .footer-copy {
-    color: rgba(240,226,204,0.26);
-  }
+.footer-up {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: rgba(232, 84, 26, 0.45);
+  font-family: 'DM Mono', monospace;
+  transition: color 0.3s;
+}
 
-  .footer-top {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: rgba(232,84,26,0.5);
-    transition: color 0.3s;
-    padding: 0;
-  }
-  .footer-top:hover {
-    color: #E8541A;
-  }
+.footer-up:hover {
+  color: #E8541A;
+}

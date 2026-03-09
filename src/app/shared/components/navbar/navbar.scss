@@ -4,9 +4,9 @@
   left: 0;
   right: 0;
   z-index: 50;
-  background: rgba(44, 29, 14, 0.92);
+  background: rgba(253, 246, 238, 0.92);
   backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(232, 84, 26, 0.15);
+  border-bottom: 1px solid rgba(232, 84, 26, 0.10);
 }
 
 .nav-logo {
@@ -15,12 +15,14 @@
   cursor: pointer;
   padding: 0;
   font-family: 'Playfair Display', serif;
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 900;
+  color: #E8541A;
+  letter-spacing: -0.02em;
 }
 
 .logo-dot {
-  -webkit-text-fill-color: rgba(232, 84, 26, 0.35);
+  color: rgba(232, 84, 26, 0.40);
 }
 
 .nav-link {
@@ -29,7 +31,7 @@
   cursor: pointer;
   padding: 0;
   position: relative;
-  color: rgba(240, 226, 204, 0.52);
+  color: rgba(28, 16, 8, 0.45);
   transition: color 0.3s;
   font-family: 'DM Mono', monospace;
 }
@@ -48,7 +50,7 @@
 
 .nav-link:hover,
 .nav-link.nav-active {
-  color: #F0E2CC;
+  color: #1C1008;
 }
 
 .nav-link:hover::after,
