@@ -1,0 +1,62 @@
+.logo-wrapper {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+
+.logo-img {
+  display: block;
+  object-fit: contain;
+}
+
+/* ── Variante full (logo completo) ── */
+.logo-img--full {
+  height: auto;
+  width: auto;
+}
+
+/* ── Variante icon (solo isotipo) ── */
+.logo-img--icon {
+  height: auto;
+  width: auto;
+  border-radius: 10px;
+}
+
+/* ══ TAMAÑOS — variante full ══ */
+
+/* xs — breadcrumbs, badges pequeños */
+.logo-xs.logo-full .logo-img {
+  max-height: 24px;
+}
+
+/* sm — navbar */
+.logo-sm.logo-full .logo-img {
+  max-height: 36px;
+}
+
+/* md — footer */
+.logo-md.logo-full .logo-img {
+  max-height: 48px;
+}
+
+/* lg — about card, hero */
+.logo-lg.logo-full .logo-img {
+  max-height: 80px;
+}
+
+/* ══ TAMAÑOS — variante icon ══ */
+.logo-xs.logo-icon .logo-img {
+  max-height: 28px;
+}
+
+.logo-sm.logo-icon .logo-img {
+  max-height: 40px;
+}
+
+.logo-md.logo-icon .logo-img {
+  max-height: 56px;
+}
+
+.logo-lg.logo-icon .logo-img {
+  max-height: 96px;
+}

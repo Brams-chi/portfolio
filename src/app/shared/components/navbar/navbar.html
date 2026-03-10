@@ -1,42 +1,72 @@
-<!-- <nav class="navbar">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <button class="nav-logo font-display fire-gradient" (click)="goto('/')">
-            BRAMS<span class="logo-dot">.</span>
-        </button>
-        <div class="hidden md:flex items-center gap-8">
-            <button class="nav-link font-mono text-sm tracking-widest uppercase" [class.nav-active]="isActive('/')"
-                (click)="goto('/')">Inicio</button>
-            <button class="nav-link font-mono text-sm tracking-widest uppercase" [class.nav-active]="isActive('/about')"
-                (click)="goto('/about')">Nosotros</button>
-            <button class="nav-link font-mono text-sm tracking-widest uppercase"
-                [class.nav-active]="isActive('/skills')" (click)="goto('/skills')">Capacidades</button>
-            <button class="nav-link font-mono text-sm tracking-widest uppercase"
-                [class.nav-active]="isActive('/projects')" (click)="goto('/projects')">Servicios</button>
-            <button class="nav-link font-mono text-sm tracking-widest uppercase"
-                [class.nav-active]="isActive('/contact')" (click)="goto('/contact')">Contacto</button>
-        </div>
-    </div>
-</nav> -->
 <nav class="navbar">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="nav-inner">
 
         <!-- Logo -->
         <button class="nav-logo font-display" (click)="goto('/')">
-            BRAMS<span class="logo-dot">.</span>
+            <app-logo size="sm" />
         </button>
 
-        <!-- Links -->
-        <div class="hidden md:flex items-center gap-8">
-            <button class="nav-link font-mono text-sm tracking-widest uppercase" [class.nav-active]="isActive('/')"
-                (click)="goto('/')">Inicio</button>
-            <button class="nav-link font-mono text-sm tracking-widest uppercase" [class.nav-active]="isActive('/about')"
-                (click)="goto('/about')">Nosotros</button>
-            <button class="nav-link font-mono text-sm tracking-widest uppercase"
-                [class.nav-active]="isActive('/skills')" (click)="goto('/skills')">Metodologías</button>
-            <button class="nav-link font-mono text-sm tracking-widest uppercase"
-                [class.nav-active]="isActive('/projects')" (click)="goto('/projects')">Servicios</button>
-            <button class="nav-link font-mono text-sm tracking-widest uppercase"
-                [class.nav-active]="isActive('/contact')" (click)="goto('/contact')">Contacto</button>
+        <!-- Links desktop (>900px) -->
+        <div class="nav-links-desktop">
+            @for (link of links; track link.path; let i = $index) {
+            <button class="nav-link font-mono" [class.nav-active]="isActive(link.path)"
+                [style.animation-delay]="menuOpen() ? (i * 60) + 'ms' : '0ms'" (click)="gotoAndClose(link.path)">
+                {{ link.label }}
+            </button>
+            }
         </div>
+
+        <!-- CTA desktop -->
+        <button class="nav-cta fire-bg font-mono nav-cta-desktop" (click)="goto('/contact')">
+            Contáctanos
+        </button>
+
+        <!-- Botón hamburguesa (solo móvil <900px) -->
+        <button class="hamburger" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen()">
+            <span class="ham-line" [class.ham-open-1]="menuOpen()"></span>
+            <span class="ham-line" [class.ham-open-2]="menuOpen()"></span>
+            <span class="ham-line" [class.ham-open-3]="menuOpen()"></span>
+        </button>
+
     </div>
 </nav>
+
+<!-- Overlay oscuro detrás del sidebar -->
+@if (menuOpen()) {
+<div class="sidebar-overlay" (click)="closeMenu()"></div>
+}
+
+<!-- Sidebar flotante -->
+<aside class="sidebar" [class.sidebar-open]="menuOpen()">
+
+    <!-- Header del sidebar -->
+    <div class="sidebar-header">
+        <button class="logo-btn" (click)="gotoAndClose('/')">
+            <app-logo size="sm" />
+        </button>
+        <button class="sidebar-close" (click)="closeMenu()">✕</button>
+    </div>
+
+    <div class="sidebar-divider"></div>
+
+    <!-- Links -->
+    <nav class="sidebar-nav">
+        @for (link of links; track link.path; let i = $index) {
+        <button class="sidebar-link font-mono" [class.sidebar-active]="isActive(link.path)"
+            [style.animation-delay]="menuOpen() ? (i * 60) + 'ms' : '0ms'" (click)="gotoAndClose(link.path)">
+            <span class="sidebar-link-num">-></span>
+            {{ link.label }}
+        </button>
+        }
+    </nav>
+
+    <div class="sidebar-divider"></div>
+
+    <!-- CTA en sidebar -->
+    <div class="sidebar-footer">
+        <button class="fire-bg nav-cta font-mono w-full" (click)="gotoAndClose('/contact')">
+            Contáctanos →
+        </button>
+    </div>
+
+</aside>
